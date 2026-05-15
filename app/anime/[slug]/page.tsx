@@ -216,7 +216,8 @@ export default function AnimeDetailPage() {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4 mt-10">
-                  <button
+                  <Link
+                    href={`/anime/watch/${data?.episodeList[0]?.episodeId}`}
                     className="
                     h-14 px-8 rounded-2xl
                     bg-gradient-to-r
@@ -230,7 +231,7 @@ export default function AnimeDetailPage() {
                   >
                     <PlayCircle size={20} />
                     Tonton Sekarang
-                  </button>
+                  </Link>
 
                   <button
                     className="
