@@ -19,10 +19,10 @@ export default function Navbar() {
 
               {/* Desktop Menu */}
               <nav className="hidden lg:flex items-center gap-8">
-                <a href="#">Beranda</a>
-                <a href="#">Jadwal</a>
-                <a href="#">Genre</a>
-                <a href="#">Watchlist</a>
+                <Link href="/">Beranda</Link>
+                <Link href="/schedule">Jadwal</Link>
+                <Link href="/genres">Genre</Link>
+                <Link href="/watchlist">Watchlist</Link>
               </nav>
 
               {/* Desktop Right */}

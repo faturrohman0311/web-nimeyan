@@ -1,13 +1,17 @@
+import Link from "next/link";
+
 interface Props {
   title: string;
   image: string;
   genre: string;
   badge?: string;
+  slug?: string;
 }
 
-export default function AnimeCard({ title, image, genre, badge }: Props) {
+export default function AnimeCard({ title, image, genre, badge, slug }: Props) {
   return (
-    <div
+    <Link
+      href={`/anime/${slug}`}
       className="
         group relative overflow-hidden rounded-3xl
         border border-white/10
@@ -63,6 +67,6 @@ export default function AnimeCard({ title, image, genre, badge }: Props) {
 
         <p className="text-sm text-zinc-400 mt-1">{genre}</p>
       </div>
-    </div>
+    </Link>
   );
 }

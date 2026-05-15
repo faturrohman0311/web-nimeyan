@@ -1,4 +1,6 @@
+"use client";
 import { Sword, Flame, Ghost, Heart, Rocket, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const genres = [
   {
@@ -27,7 +29,19 @@ const genres = [
   },
 ];
 
+import { getAllGenre } from "@/lib/api";
+
 export default function GenreSection() {
+  const [genresData, setGenresData]: any = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const genreDatas = await getAllGenre();
+      setGenresData(genreDatas?.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <section
       className="
@@ -48,9 +62,7 @@ export default function GenreSection() {
 
       {/* Grid */}
       <div className="grid grid-cols-2 gap-4">
-        {genres.map((genre, index) => {
-          const Icon = genre.icon;
-
+        {genresData?.genreList.map((genre: any, index: number) => {
           return (
             <button
               key={index}
@@ -67,24 +79,6 @@ export default function GenreSection() {
                 gap-3
               "
             >
-              <div
-                className="
-                  w-14 h-14 rounded-2xl
-                  bg-white/5
-                  group-hover:bg-purple-500/20
-                  flex items-center justify-center
-                  transition
-                "
-              >
-                <Icon
-                  className="
-                    text-zinc-300
-                    group-hover:text-purple-400
-                    transition
-                  "
-                />
-              </div>
-
               <span
                 className="
                   font-semibold text-sm
